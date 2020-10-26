@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		500FE64A25410EE20076E490 /* MeLiViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500FE64825410EE20076E490 /* MeLiViewCell.swift */; };
+		500FE64B25410EE20076E490 /* MeLiViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 500FE64925410EE20076E490 /* MeLiViewCell.xib */; };
+		50271714253CB0F700B68445 /* MeLiDTOs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50271713253CB0F700B68445 /* MeLiDTOs.swift */; };
+		505AC41E2545D60C00962263 /* ItemDetailViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505AC41D2545D60C00962263 /* ItemDetailViewModelProtocol.swift */; };
+		505AC44125464E6700962263 /* MeLiSearchItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505AC44025464E6700962263 /* MeLiSearchItemsViewModel.swift */; };
+		505F2B5B2541BC5A0059118D /* UIImageView+downloadImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505F2B5A2541BC5A0059118D /* UIImageView+downloadImageHandler.swift */; };
+		509F02412544A395006D7141 /* SearchItemViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F02402544A395006D7141 /* SearchItemViewModelProtocol.swift */; };
+		509F024E2544B643006D7141 /* Float+Formmater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F024D2544B643006D7141 /* Float+Formmater.swift */; };
+		509F02562544C3E2006D7141 /* MeLiItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509F02552544C3E2006D7141 /* MeLiItemDetailViewController.swift */; };
+		50C000EB253B4FA1001D1FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C000EA253B4FA1001D1FDD /* AppDelegate.swift */; };
+		50C000ED253B4FA1001D1FDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C000EC253B4FA1001D1FDD /* SceneDelegate.swift */; };
+		50C000EF253B4FA1001D1FDD /* MeLiSearchItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C000EE253B4FA1001D1FDD /* MeLiSearchItemsViewController.swift */; };
+		50C000F2253B4FA1001D1FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C000F0253B4FA1001D1FDD /* Main.storyboard */; };
+		50C000F5253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 50C000F3253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodeld */; };
+		50C000F7253B4FA4001D1FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50C000F6253B4FA4001D1FDD /* Assets.xcassets */; };
+		50C000FA253B4FA4001D1FDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50C000F8253B4FA4001D1FDD /* LaunchScreen.storyboard */; };
+		50C00105253B4FA4001D1FDD /* MeLiCodeChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C00104253B4FA4001D1FDD /* MeLiCodeChallengeTests.swift */; };
+		50C00110253B4FA4001D1FDD /* MeLiCodeChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C0010F253B4FA4001D1FDD /* MeLiCodeChallengeUITests.swift */; };
+		50EE22FA253B50FE00FA51A7 /* MeLiParserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EE22F9253B50FE00FA51A7 /* MeLiParserItem.swift */; };
+		50EE22FD253B53B800FA51A7 /* MeLiEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EE22FC253B53B800FA51A7 /* MeLiEntity.swift */; };
+		50EE2300253B9D3E00FA51A7 /* MeLiNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EE22FF253B9D3E00FA51A7 /* MeLiNetworkService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50C00101253B4FA4001D1FDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50C000DF253B4FA1001D1FDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50C000E6253B4FA1001D1FDD;
+			remoteInfo = MeLiCodeChallenge;
+		};
+		50C0010C253B4FA4001D1FDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50C000DF253B4FA1001D1FDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50C000E6253B4FA1001D1FDD;
+			remoteInfo = MeLiCodeChallenge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		500FE64825410EE20076E490 /* MeLiViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiViewCell.swift; sourceTree = "<group>"; };
+		500FE64925410EE20076E490 /* MeLiViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeLiViewCell.xib; sourceTree = "<group>"; };
+		50271713253CB0F700B68445 /* MeLiDTOs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiDTOs.swift; sourceTree = "<group>"; };
+		505AC41D2545D60C00962263 /* ItemDetailViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModelProtocol.swift; sourceTree = "<group>"; };
+		505AC44025464E6700962263 /* MeLiSearchItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiSearchItemsViewModel.swift; sourceTree = "<group>"; };
+		505F2B5A2541BC5A0059118D /* UIImageView+downloadImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+downloadImageHandler.swift"; sourceTree = "<group>"; };
+		509F02402544A395006D7141 /* SearchItemViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemViewModelProtocol.swift; sourceTree = "<group>"; };
+		509F024D2544B643006D7141 /* Float+Formmater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Formmater.swift"; sourceTree = "<group>"; };
+		509F02552544C3E2006D7141 /* MeLiItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiItemDetailViewController.swift; sourceTree = "<group>"; };
+		50C000E7253B4FA1001D1FDD /* MeLiCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeLiCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C000EA253B4FA1001D1FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		50C000EC253B4FA1001D1FDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		50C000EE253B4FA1001D1FDD /* MeLiSearchItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiSearchItemsViewController.swift; sourceTree = "<group>"; };
+		50C000F1253B4FA1001D1FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50C000F4253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeLiCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
+		50C000F6253B4FA4001D1FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50C000F9253B4FA4001D1FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		50C000FB253B4FA4001D1FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50C00100253B4FA4001D1FDD /* MeLiCodeChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiCodeChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C00104253B4FA4001D1FDD /* MeLiCodeChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiCodeChallengeTests.swift; sourceTree = "<group>"; };
+		50C00106253B4FA4001D1FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50C0010B253B4FA4001D1FDD /* MeLiCodeChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiCodeChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C0010F253B4FA4001D1FDD /* MeLiCodeChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiCodeChallengeUITests.swift; sourceTree = "<group>"; };
+		50C00111253B4FA4001D1FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50EE22F9253B50FE00FA51A7 /* MeLiParserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiParserItem.swift; sourceTree = "<group>"; };
+		50EE22FC253B53B800FA51A7 /* MeLiEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiEntity.swift; sourceTree = "<group>"; };
+		50EE22FF253B9D3E00FA51A7 /* MeLiNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiNetworkService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50C000E4253B4FA1001D1FDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C000FD253B4FA4001D1FDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C00108253B4FA4001D1FDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		505ABE55253F15DA00725CA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				500FE64825410EE20076E490 /* MeLiViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		505ABE5A253F16A600725CA5 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				50C000F8253B4FA4001D1FDD /* LaunchScreen.storyboard */,
+				50C000F0253B4FA1001D1FDD /* Main.storyboard */,
+				500FE64925410EE20076E490 /* MeLiViewCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		505AC439254649E000962263 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				505AC44025464E6700962263 /* MeLiSearchItemsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		505F2B592541BA2C0059118D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				505F2B5A2541BC5A0059118D /* UIImageView+downloadImageHandler.swift */,
+				509F024D2544B643006D7141 /* Float+Formmater.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		505F2B652541C4840059118D /* ViewModelsProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				509F02402544A395006D7141 /* SearchItemViewModelProtocol.swift */,
+				505AC41D2545D60C00962263 /* ItemDetailViewModelProtocol.swift */,
+			);
+			path = ViewModelsProtocols;
+			sourceTree = "<group>";
+		};
+		50C000DE253B4FA1001D1FDD = {
+			isa = PBXGroup;
+			children = (
+				50C000E9253B4FA1001D1FDD /* MeLiCodeChallenge */,
+				50C00103253B4FA4001D1FDD /* MeLiCodeChallengeTests */,
+				50C0010E253B4FA4001D1FDD /* MeLiCodeChallengeUITests */,
+				50C000E8253B4FA1001D1FDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50C000E8253B4FA1001D1FDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50C000E7253B4FA1001D1FDD /* MeLiCodeChallenge.app */,
+				50C00100253B4FA4001D1FDD /* MeLiCodeChallengeTests.xctest */,
+				50C0010B253B4FA4001D1FDD /* MeLiCodeChallengeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50C000E9253B4FA1001D1FDD /* MeLiCodeChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				50EE2301253BBB0F00FA51A7 /* ViewControllers */,
+				505AC439254649E000962263 /* ViewModel */,
+				50EE22FB253B539500FA51A7 /* Models */,
+				505ABE55253F15DA00725CA5 /* Views */,
+				505F2B652541C4840059118D /* ViewModelsProtocols */,
+				505F2B592541BA2C0059118D /* Utils */,
+				505ABE5A253F16A600725CA5 /* UI */,
+				50EE22FE253B9D0300FA51A7 /* NetworkServices */,
+				50C0011D253B4FBA001D1FDD /* Parsers */,
+				50C000EA253B4FA1001D1FDD /* AppDelegate.swift */,
+				50C000EC253B4FA1001D1FDD /* SceneDelegate.swift */,
+				50C000F6253B4FA4001D1FDD /* Assets.xcassets */,
+				50C000FB253B4FA4001D1FDD /* Info.plist */,
+				50C000F3253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodeld */,
+			);
+			path = MeLiCodeChallenge;
+			sourceTree = "<group>";
+		};
+		50C00103253B4FA4001D1FDD /* MeLiCodeChallengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				50C00104253B4FA4001D1FDD /* MeLiCodeChallengeTests.swift */,
+				50C00106253B4FA4001D1FDD /* Info.plist */,
+			);
+			path = MeLiCodeChallengeTests;
+			sourceTree = "<group>";
+		};
+		50C0010E253B4FA4001D1FDD /* MeLiCodeChallengeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50C0010F253B4FA4001D1FDD /* MeLiCodeChallengeUITests.swift */,
+				50C00111253B4FA4001D1FDD /* Info.plist */,
+			);
+			path = MeLiCodeChallengeUITests;
+			sourceTree = "<group>";
+		};
+		50C0011D253B4FBA001D1FDD /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				50EE22F9253B50FE00FA51A7 /* MeLiParserItem.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		50EE22FB253B539500FA51A7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50EE22FC253B53B800FA51A7 /* MeLiEntity.swift */,
+				50271713253CB0F700B68445 /* MeLiDTOs.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		50EE22FE253B9D0300FA51A7 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				50EE22FF253B9D3E00FA51A7 /* MeLiNetworkService.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		50EE2301253BBB0F00FA51A7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50C000EE253B4FA1001D1FDD /* MeLiSearchItemsViewController.swift */,
+				509F02552544C3E2006D7141 /* MeLiItemDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50C000E6253B4FA1001D1FDD /* MeLiCodeChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50C00114253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallenge" */;
+			buildPhases = (
+				50C000E3253B4FA1001D1FDD /* Sources */,
+				50C000E4253B4FA1001D1FDD /* Frameworks */,
+				50C000E5253B4FA1001D1FDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MeLiCodeChallenge;
+			productName = MeLiCodeChallenge;
+			productReference = 50C000E7253B4FA1001D1FDD /* MeLiCodeChallenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50C000FF253B4FA4001D1FDD /* MeLiCodeChallengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50C00117253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallengeTests" */;
+			buildPhases = (
+				50C000FC253B4FA4001D1FDD /* Sources */,
+				50C000FD253B4FA4001D1FDD /* Frameworks */,
+				50C000FE253B4FA4001D1FDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50C00102253B4FA4001D1FDD /* PBXTargetDependency */,
+			);
+			name = MeLiCodeChallengeTests;
+			productName = MeLiCodeChallengeTests;
+			productReference = 50C00100253B4FA4001D1FDD /* MeLiCodeChallengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50C0010A253B4FA4001D1FDD /* MeLiCodeChallengeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50C0011A253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallengeUITests" */;
+			buildPhases = (
+				50C00107253B4FA4001D1FDD /* Sources */,
+				50C00108253B4FA4001D1FDD /* Frameworks */,
+				50C00109253B4FA4001D1FDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50C0010D253B4FA4001D1FDD /* PBXTargetDependency */,
+			);
+			name = MeLiCodeChallengeUITests;
+			productName = MeLiCodeChallengeUITests;
+			productReference = 50C0010B253B4FA4001D1FDD /* MeLiCodeChallengeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50C000DF253B4FA1001D1FDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Fabián Ricardo Rodríguez Avellaneda";
+				TargetAttributes = {
+					50C000E6253B4FA1001D1FDD = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					50C000FF253B4FA4001D1FDD = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 50C000E6253B4FA1001D1FDD;
+					};
+					50C0010A253B4FA4001D1FDD = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 50C000E6253B4FA1001D1FDD;
+					};
+				};
+			};
+			buildConfigurationList = 50C000E2253B4FA1001D1FDD /* Build configuration list for PBXProject "MeLiCodeChallenge" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50C000DE253B4FA1001D1FDD;
+			productRefGroup = 50C000E8253B4FA1001D1FDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50C000E6253B4FA1001D1FDD /* MeLiCodeChallenge */,
+				50C000FF253B4FA4001D1FDD /* MeLiCodeChallengeTests */,
+				50C0010A253B4FA4001D1FDD /* MeLiCodeChallengeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50C000E5253B4FA1001D1FDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C000FA253B4FA4001D1FDD /* LaunchScreen.storyboard in Resources */,
+				50C000F7253B4FA4001D1FDD /* Assets.xcassets in Resources */,
+				50C000F2253B4FA1001D1FDD /* Main.storyboard in Resources */,
+				500FE64B25410EE20076E490 /* MeLiViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C000FE253B4FA4001D1FDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C00109253B4FA4001D1FDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50C000E3253B4FA1001D1FDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				509F02562544C3E2006D7141 /* MeLiItemDetailViewController.swift in Sources */,
+				50EE2300253B9D3E00FA51A7 /* MeLiNetworkService.swift in Sources */,
+				50C000EF253B4FA1001D1FDD /* MeLiSearchItemsViewController.swift in Sources */,
+				50EE22FA253B50FE00FA51A7 /* MeLiParserItem.swift in Sources */,
+				500FE64A25410EE20076E490 /* MeLiViewCell.swift in Sources */,
+				50271714253CB0F700B68445 /* MeLiDTOs.swift in Sources */,
+				509F024E2544B643006D7141 /* Float+Formmater.swift in Sources */,
+				505F2B5B2541BC5A0059118D /* UIImageView+downloadImageHandler.swift in Sources */,
+				50C000EB253B4FA1001D1FDD /* AppDelegate.swift in Sources */,
+				509F02412544A395006D7141 /* SearchItemViewModelProtocol.swift in Sources */,
+				505AC41E2545D60C00962263 /* ItemDetailViewModelProtocol.swift in Sources */,
+				50EE22FD253B53B800FA51A7 /* MeLiEntity.swift in Sources */,
+				50C000ED253B4FA1001D1FDD /* SceneDelegate.swift in Sources */,
+				50C000F5253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodeld in Sources */,
+				505AC44125464E6700962263 /* MeLiSearchItemsViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C000FC253B4FA4001D1FDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C00105253B4FA4001D1FDD /* MeLiCodeChallengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50C00107253B4FA4001D1FDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C00110253B4FA4001D1FDD /* MeLiCodeChallengeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50C00102253B4FA4001D1FDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50C000E6253B4FA1001D1FDD /* MeLiCodeChallenge */;
+			targetProxy = 50C00101253B4FA4001D1FDD /* PBXContainerItemProxy */;
+		};
+		50C0010D253B4FA4001D1FDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50C000E6253B4FA1001D1FDD /* MeLiCodeChallenge */;
+			targetProxy = 50C0010C253B4FA4001D1FDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50C000F0253B4FA1001D1FDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50C000F1253B4FA1001D1FDD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		50C000F8253B4FA4001D1FDD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50C000F9253B4FA4001D1FDD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50C00112253B4FA4001D1FDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		50C00113253B4FA4001D1FDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50C00115253B4FA4001D1FDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50C00116253B4FA4001D1FDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallenge/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallenge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50C00118253B4FA4001D1FDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeLiCodeChallenge.app/MeLiCodeChallenge";
+			};
+			name = Debug;
+		};
+		50C00119253B4FA4001D1FDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallengeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallengeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeLiCodeChallenge.app/MeLiCodeChallenge";
+			};
+			name = Release;
+		};
+		50C0011B253B4FA4001D1FDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MeLiCodeChallenge;
+			};
+			name = Debug;
+		};
+		50C0011C253B4FA4001D1FDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K24X9DMX24;
+				INFOPLIST_FILE = MeLiCodeChallengeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = test.MeLiCodeChallengeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MeLiCodeChallenge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50C000E2253B4FA1001D1FDD /* Build configuration list for PBXProject "MeLiCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50C00112253B4FA4001D1FDD /* Debug */,
+				50C00113253B4FA4001D1FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50C00114253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50C00115253B4FA4001D1FDD /* Debug */,
+				50C00116253B4FA4001D1FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50C00117253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50C00118253B4FA4001D1FDD /* Debug */,
+				50C00119253B4FA4001D1FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50C0011A253B4FA4001D1FDD /* Build configuration list for PBXNativeTarget "MeLiCodeChallengeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50C0011B253B4FA4001D1FDD /* Debug */,
+				50C0011C253B4FA4001D1FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		50C000F3253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				50C000F4253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodel */,
+			);
+			currentVersion = 50C000F4253B4FA1001D1FDD /* MeLiCodeChallenge.xcdatamodel */;
+			path = MeLiCodeChallenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 50C000DF253B4FA1001D1FDD /* Project object */;
+}
