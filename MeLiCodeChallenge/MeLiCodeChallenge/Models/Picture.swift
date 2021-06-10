@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Image: Codable {
+struct Picture: Codable {
     enum CodingKeys : String, CodingKey {
         case id
         case url
@@ -21,5 +21,4 @@ struct Image: Codable {
     let secureUrl: String
     let size: String
     let maxSize: String
-    
 }

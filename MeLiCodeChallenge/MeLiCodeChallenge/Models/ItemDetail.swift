@@ -13,7 +13,7 @@ struct ItemDetail: Codable {
         case title
         case price
         case currency = "currency_id"
-        case images = "pictures"
+        case pictures = "pictures"
         case shipping
         case warranty
     }
@@ -22,7 +22,7 @@ struct ItemDetail: Codable {
     let title: String
     let price: Int
     let currency: String
-    let images: [Image]
+    let pictures: [Picture]
     let shipping: Shipping
     let warranty: String
 }
