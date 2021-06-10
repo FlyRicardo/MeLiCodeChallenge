@@ -15,10 +15,10 @@
 		501A120F2667CE85002C3100 /* CategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A120E2667CE85002C3100 /* CategoryResponse.swift */; };
 		501A12142667CEBD002C3100 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A12132667CEBD002C3100 /* Item.swift */; };
 		501A12192667CEF7002C3100 /* Installments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501A12182667CEF7002C3100 /* Installments.swift */; };
+		5026F65D2671B51B00A80B43 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5026F65C2671B51B00A80B43 /* Picture.swift */; };
 		50368D2F2665C236006A4A32 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50368D2E2665C236006A4A32 /* ContentViewModel.swift */; };
 		503B575F266C0AD800B7C6EE /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503B575E266C0AD800B7C6EE /* APIResponse.swift */; };
 		504EFD9C2669C593000B735C /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EFD9B2669C593000B735C /* ItemDetail.swift */; };
-		504EFDA52669CA78000B735C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504EFDA42669CA78000B735C /* Image.swift */; };
 		50C8447E26642172008276F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C8447D26642172008276F5 /* AppDelegate.swift */; };
 		50C8448026642172008276F5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C8447F26642172008276F5 /* SceneDelegate.swift */; };
 		50C8448226642172008276F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C8448126642172008276F5 /* ContentView.swift */; };
@@ -66,10 +66,10 @@
 		501A120E2667CE85002C3100 /* CategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResponse.swift; sourceTree = "<group>"; };
 		501A12132667CEBD002C3100 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		501A12182667CEF7002C3100 /* Installments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installments.swift; sourceTree = "<group>"; };
+		5026F65C2671B51B00A80B43 /* Picture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		50368D2E2665C236006A4A32 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		503B575E266C0AD800B7C6EE /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		504EFD9B2669C593000B735C /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
-		504EFDA42669CA78000B735C /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		50C8447A26642172008276F5 /* MeLiCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeLiCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C8447D26642172008276F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50C8447F26642172008276F5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,13 +196,13 @@
 		50C844B0266421F1008276F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5026F65C2671B51B00A80B43 /* Picture.swift */,
 				50C844B1266421F1008276F5 /* Categories.swift */,
 				501A120E2667CE85002C3100 /* CategoryResponse.swift */,
 				501A12132667CEBD002C3100 /* Item.swift */,
 				501A12182667CEF7002C3100 /* Installments.swift */,
 				5011874D26685E2A00D3BD10 /* Shipping.swift */,
 				504EFD9B2669C593000B735C /* ItemDetail.swift */,
-				504EFDA42669CA78000B735C /* Image.swift */,
 				5006A883266D3B33002270E9 /* Items.swift */,
 			);
 			path = Models;
@@ -417,7 +417,6 @@
 			files = (
 				50C8450426644FA8008276F5 /* ApiUrlRequestBuilder.swift in Sources */,
 				50C844CB26642567008276F5 /* ServicesProviderProtocol.swift in Sources */,
-				504EFDA52669CA78000B735C /* Image.swift in Sources */,
 				50C8447E26642172008276F5 /* AppDelegate.swift in Sources */,
 				50C844DC2664291D008276F5 /* CategoriesServiceFactory.swift in Sources */,
 				503B575F266C0AD800B7C6EE /* APIResponse.swift in Sources */,
@@ -426,6 +425,7 @@
 				5011874E26685E2A00D3BD10 /* Shipping.swift in Sources */,
 				50C8450C26645898008276F5 /* ServicesManager.swift in Sources */,
 				5011875D2668612D00D3BD10 /* ItemServices.swift in Sources */,
+				5026F65D2671B51B00A80B43 /* Picture.swift in Sources */,
 				501A12192667CEF7002C3100 /* Installments.swift in Sources */,
 				50C844B2266421F1008276F5 /* Categories.swift in Sources */,
 				50C844E4266442CA008276F5 /* ServicesManagerProtocol.swift in Sources */,
