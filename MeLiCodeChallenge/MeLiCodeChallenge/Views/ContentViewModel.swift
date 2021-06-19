@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Kingfisher
 
 class ContentViewModel: ObservableObject {
     
@@ -17,9 +18,13 @@ class ContentViewModel: ObservableObject {
     let categoryServices = ServicesProvider.create(repository: CategoryServicesProtocol.self)
     let itemServices = ServicesProvider.create(repository: ItemServicesProtocol.self)
     
+    //MARK: Publised Variables
+    @Published var url: URL!
+    
     //MARK: - Constructor
     
     init() {
+        self.url = URL(string: "")
         categoryServices.getCategories(fromSite: "MCO") { (response: CategoriesResponse) in
             switch response {
             case .success(let itemDetail):
@@ -36,10 +41,13 @@ class ContentViewModel: ObservableObject {
                 print(error)
             }
         }
-        itemServices.getItemDetail(id: "MCO611867191") { (response: itemDetail) in
+        itemServices.getItemDetail(id: "MLA909254100") { (response: itemDetail) in
             switch response {
             case .success(let itemDetail):
-                print(itemDetail)
+                DispatchQueue.main.async {
+                    guard let picture = itemDetail.pictures.first, let url = URL(string: picture.url) else { return }
+                    self.url = url
+                }
             case .failure(let error):
                 print(error)
             }

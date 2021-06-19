@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ContentView: View {
     
@@ -13,17 +14,15 @@ struct ContentView: View {
     @StateObject var contentViewModel: ContentViewModel
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        
-        
-
-//        VStack {
-//            let servicesManager = CategoriesServiceFactory.create()
-//            servicesManager.getCategories(fromSite: "MLA") { (Result<[Categories], NetworkingError>) in
-//
-//            }
-//        }
+        VStack {
+            Text("Hello, world!")
+                .padding()
+            KFImage(contentViewModel.url)
+                .resizable()
+                    .frame(width: 128, height: 128)
+                    .cornerRadius(20)
+                    .shadow(radius: 5)
+        }
     }
 }
 
