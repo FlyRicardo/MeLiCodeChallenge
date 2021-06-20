@@ -27,8 +27,8 @@ extension CategoriesCoordinator: Coordinator {
     }
     
     func setUpRootViewController() {
-        let categoriesObservableObject = CategoriesObservableObject(coordinator: self)
-        let viewController = UIHostingController(rootView: CategoriesView(categoryViewController: categoriesObservableObject))
+        let categoryListObservableObject = CategoryListObservableObject(coordinator: self)
+        let viewController = UIHostingController(rootView: CategoryListView(categoryListObservableObject: categoryListObservableObject))
         viewController.title = "navigation.title.home"
         
         self.navigationController.pushViewController(viewController, animated: true)

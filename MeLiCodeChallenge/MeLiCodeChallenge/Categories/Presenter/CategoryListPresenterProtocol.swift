@@ -9,6 +9,6 @@ import Foundation
 
 /// Interface exposing actions that transform the categories view actions into a categories model action,
 /// as well as transforms the categories models data into presentation values
-protocol CategoriesPresenterProtocol {
-    func loadData(handler: @escaping (Result<[Categories], NetworkingError>) -> Void)
+protocol CategoryListPresenterProtocol {
+    func loadData(handler: @escaping (Result<[Category], NetworkingError>) -> Void)
 }

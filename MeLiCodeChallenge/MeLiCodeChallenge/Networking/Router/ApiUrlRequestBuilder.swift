@@ -9,6 +9,7 @@ import Foundation
 
 enum ApiUrlRequestBuilder {
     case categories(site: String)
+    case category(id: String)
     case items(bySite: String, query: String)
     case itemDetail(id: String)
     
@@ -18,6 +19,9 @@ enum ApiUrlRequestBuilder {
         switch self {
         case .categories(let site):
             return "\(serverUrl)/sites/\(site)/categories"
+
+        case .category(let id):
+            return "\(serverUrl)/categories/\(id)"
             
         case .items(let bySite, let query):
             return "\(serverUrl)/sites/\(bySite)/search?q=\(query)"

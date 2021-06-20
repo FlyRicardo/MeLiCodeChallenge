@@ -12,7 +12,7 @@ import Kingfisher
 class ContentViewModel: ObservableObject {
     
     //MARK: - Variables
-    typealias CategoriesResponse = Result<[Categories], NetworkingError>
+    typealias CategoriesResponse = Result<[Category], NetworkingError>
     typealias itemsByQueryResponse = Result<[Item], NetworkingError>
     typealias itemDetail = Result<ItemDetail, NetworkingError>
     let categoryServices = ServicesProvider.create(repository: CategoryServicesProtocol.self)
