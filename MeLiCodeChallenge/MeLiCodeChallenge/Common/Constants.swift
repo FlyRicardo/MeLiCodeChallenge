@@ -9,6 +9,10 @@ import Foundation
 
 struct Constants{
     struct Categories {
-        static let categoriesTitle = ""
+        static let categoriesTitle = "Categories"
+    }
+    
+    struct Products {
+        static let productsTitle = "Products"
     }
 }

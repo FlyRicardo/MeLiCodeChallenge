@@ -6,21 +6,13 @@
 //
 
 import Foundation
-
-//
-//  SearchBar.swift
-//  MercadoLibreTest
-//
-//  Created by Ricardo Grajales Duque on 16/04/21.
-//
-
 import SwiftUI
 
 struct SearchBarView: UIViewRepresentable {
 
     //MARK: - Binding
     @Binding var text: String
-    @Binding var shouldSearchForPruduct: Bool
+    @Binding var searchByProduct: Bool
 
     //MARK: - Required by UIViewRepresentable
     func makeUIView(context: UIViewRepresentableContext<SearchBarView>) -> UISearchBar {
@@ -38,8 +30,7 @@ struct SearchBarView: UIViewRepresentable {
     func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBarView>) {
         uiView.text = text
     }
-    
-    //Required to create the Coordinator in the current context
+
     func makeCoordinator() -> SearchBarView.Coordinator {
         return Coordinator(searchBarView: self)
     }
@@ -61,7 +52,7 @@ struct SearchBarView: UIViewRepresentable {
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             searchBar.resignFirstResponder()
             searchBarView.text = searchBar.text ?? ""
-            searchBarView.shouldSearchForPruduct = true
+            searchBarView.searchByProduct = true
         }
         
         func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -81,6 +72,6 @@ struct SearchBarView_Previews: PreviewProvider {
     @State static var shouldSearchForPruduct = false
 
     static var previews: some View {
-        SearchBarView(text: $text, shouldSearchForPruduct: $shouldSearchForPruduct)
+        SearchBarView(text: $text, searchByProduct: $shouldSearchForPruduct)
     }
 }

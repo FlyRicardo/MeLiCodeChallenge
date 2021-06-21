@@ -13,6 +13,15 @@ class CategoryListObservableObject: ObservableObject {
     
     //MARK: Publised Variables
     @Published var categories: [Category] = []
+    @Published var items: [Item] = []
+    
+    //MARK: State variables
+    @State var searchText: String = ""
+    @State var searchByProduct: Bool = false {
+        didSet {
+            loadProducts()
+        }
+    }
     
     //MARK: Private Variables
     private lazy var presenter: CategoryListPresenterProtocol = {
@@ -24,7 +33,7 @@ class CategoryListObservableObject: ObservableObject {
     //MARK: - Constructor
     init(coordinator: CategoriesCoordinator) {
         self.coordinator = coordinator
-        loadData()
+        loadCategories()
     }
 
 }
@@ -54,7 +63,8 @@ extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
 }
 
 extension CategoryListObservableObject {
-    private func loadData() {
+    
+    private func loadCategories() {
         self.presenter.loadData { (result: Result<[Category], NetworkingError>) in
             switch result {
             case .success(let categories):
@@ -67,4 +77,8 @@ extension CategoryListObservableObject {
             }
         }
     }
+    
+    private func loadProducts() {
+    }
+
 }
