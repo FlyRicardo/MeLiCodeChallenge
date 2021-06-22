@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  MeLiCodeChallenge
+
+  Created by Fabián Ricardo Rodríguez Avellaneda on 22/06/21.
+  
+*/
+
+// MARK - Categories texts
+"navigationBar.title.categories" = "Categories";
+
+// MARK - Products texts
+"navigationBar.title.products" = "Products";

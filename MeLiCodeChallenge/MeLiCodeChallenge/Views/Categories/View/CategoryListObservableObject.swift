@@ -14,6 +14,7 @@ class CategoryListObservableObject: ObservableObject {
     //MARK: Publised Variables
     @Published var categories: [Category] = []
     @Published var items: [Item] = []
+    @Published var isLoading: Bool = true
     
     //MARK: State variables
     @State var searchText: String = ""
@@ -33,7 +34,7 @@ class CategoryListObservableObject: ObservableObject {
     //MARK: - Constructor
     init(coordinator: CategoriesCoordinator) {
         self.coordinator = coordinator
-        loadCategories()
+        self.loadCategories()
     }
 
 }
@@ -41,44 +42,35 @@ class CategoryListObservableObject: ObservableObject {
 //MARK: CategoryListObservableObjectProtocol
 
 extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
-    func setCategories(_ categories: [Category]) {
-        presenter.loadData { [weak self] (data: Result<[Category], NetworkingError>) in
-            guard let self = self else {
-                return
-            }
 
-            switch data {
-            case .success(let categories):
-                self.categories = categories
-            case .failure(let error):
-                // TODO: Display error view
-                print(error)
-            }
-        }
+    func refreshCards(data: [Category]) {
+        self.categories = data
     }
     
-    func setUrl(_ url: URL) {
-        // TODO: 
+    func hideLoading() {
+
+    }
+    
+    func showLoading() {
+
+    }
+    
+    func showError() {
+
     }
 }
+
+
+//MARK: CategoryListPresenter comunication
 
 extension CategoryListObservableObject {
     
     private func loadCategories() {
-        self.presenter.loadData { (result: Result<[Category], NetworkingError>) in
-            switch result {
-            case .success(let categories):
-                DispatchQueue.main.async {
-                    self.categories = categories
-                    Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Displaying Categories").error("Error Displaying Categories")
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        self.presenter.loadData()
     }
     
     private func loadProducts() {
+        
     }
 
 }

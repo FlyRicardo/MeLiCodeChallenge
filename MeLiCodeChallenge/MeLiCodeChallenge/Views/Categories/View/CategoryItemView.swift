@@ -19,7 +19,7 @@ struct CategoryItemView: View {
             ZStack {
                 KFImage(categoryItemObservableObject.url)
                     .placeholder {
-                        // Placeholder while downloading.
+                        // Placeholder while downloading
                         Image("DefaultImage", bundle: nil)
                     }
                     .resizable()
@@ -32,7 +32,7 @@ struct CategoryItemView: View {
                 //Category Title
                 VStack {
                     HStack {
-                        Text(categoryItemObservableObject.name) //categoryListItemVM.name
+                        Text(categoryItemObservableObject.name)
                             .font(.title).bold()
                             .background(Colors.gray)
                             .cornerRadius(5)

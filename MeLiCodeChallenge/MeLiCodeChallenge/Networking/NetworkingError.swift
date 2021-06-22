@@ -7,12 +7,12 @@
 
 import Foundation
 
-// List all possible errors what may happen in request-response process
+// List all possible errors which may happen in fetch data from API process
 enum NetworkingError: Error {
     case cancelled
     case errorParsing(errorDescription: String)
     case requestFailed
     case apiParseError
-    case responseError(data: Data?, httpUrlResponse: HTTPURLResponse)
+    case responseError(data: Data? = nil, httpUrlResponse: HTTPURLResponse? = nil)
     case urlRequestBuildFailed
 }

@@ -6,18 +6,22 @@
 //
 
 import Foundation
+import os.log
 
 class CategoryListPresenter {
     
     // MARK: - Properties
-
     private var adapter: CategoryListAdapterProtocol
     private var observableObject: CategoryListObservableObjectProtocol
-    
+    private var errorLoadingCategories: Bool
+    private var isLoading: Bool
+
     init(adapter: CategoryListAdapter,
          observableObject: CategoryListObservableObjectProtocol) {
         self.adapter = adapter
         self.observableObject = observableObject
+        errorLoadingCategories = false
+        isLoading = false
     }
 }
 
@@ -25,7 +29,8 @@ class CategoryListPresenter {
 //MARK: CategoriesPresenterProtocol
 
 extension CategoryListPresenter: CategoryListPresenterProtocol {
-    func loadData(handler: @escaping (Result<[Category], NetworkingError>) -> Void) {
+    func loadData() {
+        
         adapter.fetchCategories { [weak self] (data: Result<[Category], NetworkingError>) in
             guard let self = self else {
                 return
@@ -40,34 +45,49 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
                 categories.forEach { (category: Category) in
                     dispatchGroup.enter()
                     
-                    self.adapter.fetchCategory(withId: category.id) { (categoryDetail: Result<Category, NetworkingError>) in
+                    self.adapter.fetchCategory(withId: category.id) {(categoryDetail: Result<Category, NetworkingError>) in
                         
                         switch categoryDetail {
                         case .success(let categoryDetail):
                             
                             let categoryWithImage = Category(id: category.id,
-                                     name: category.name,
-                                     picture: categoryDetail.picture)
+                                                             name: category.name,
+                                                             picture: categoryDetail.picture)
+                            
                             categoriesWithImage.append(categoryWithImage)
+                            
                             dispatchGroup.leave()
                             
-                        case .failure(let error):
+                        case .failure(_):
                             dispatchGroup.leave()
-                            handler(.failure(error))
                         }
                     }
                 }
                 
                 dispatchGroup.notify(queue: .main) {
                     DispatchQueue.main.async {
-                        handler(.success(categoriesWithImage))
-//                        self.isLoading = false
+                        self.handleCompletionCategoriesAPICall(response: categoriesWithImage)
                     }
                 }
-                handler(.success(categoriesWithImage))
             case .failure(let error):
-                handler(.failure(error))
+                DispatchQueue.main.async {
+                    self.handleErrorOnLoadingCategories(error: error)
+                }
             }
         }
+    }
+}
+
+
+// MARK: - Loading state views
+
+extension CategoryListPresenter {
+    
+    private func handleCompletionCategoriesAPICall(response: [Category]) {
+        observableObject.refreshCards(data: response)
+    }
+    
+    private func handleErrorOnLoadingCategories(error: Error) {
+        
     }
 }

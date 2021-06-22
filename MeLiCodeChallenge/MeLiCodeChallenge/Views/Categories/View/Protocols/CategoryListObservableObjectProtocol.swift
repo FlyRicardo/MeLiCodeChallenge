@@ -9,7 +9,13 @@ import Foundation
 
 // Functions that notifies changes to `Published` parameters within Observable Objects
 protocol CategoryListObservableObjectProtocol {
-    func setUrl(_ url: URL)
     
-    func setCategories(_ categories: [Category])
+    func refreshCards(data: [Category])
+    
+    func showError()
+
+    func hideLoading()
+
+    func showLoading()
+
 }

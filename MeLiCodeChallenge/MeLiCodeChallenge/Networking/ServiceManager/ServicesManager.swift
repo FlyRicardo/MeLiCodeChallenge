@@ -27,6 +27,9 @@ struct ServicesManager: ServicesManagerProtocol {
                   handler: @escaping (Result<[T], NetworkingError>) -> Void) where T : Codable {
         
         guard let urlRequest = try? request.asURLRequest() else {
+            
+            Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.urlError).error("Error creating URL")
+            
             handler(.failure(.requestFailed))
             return
         }
@@ -35,24 +38,40 @@ struct ServicesManager: ServicesManagerProtocol {
         let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 if let error = error as NSError?, error.code == NSURLErrorCancelled {
+                    
+                    Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceRequest).error("URL error cancelled: \(error.code) \(error.localizedDescription)")
+                    
                     handler(.failure(.cancelled))
                     return
                 }
+                
                 handler(.failure(.requestFailed))
+                
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceRequest).error("Error requesting data : \(error?.localizedDescription  ?? "")")
+
                 return
             }
 
             guard let httpUrlResponse = response as? HTTPURLResponse else {
+
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Error getting service response : \(error?.localizedDescription  ?? "")")
+                
                 handler(.failure(.requestFailed))
                 return
             }
 
             guard self.successRange.contains(httpUrlResponse.statusCode) else {
+
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Service response status code out of range: \(error?.localizedDescription  ?? "")")
+                
                 handler(.failure(.responseError(data: data, httpUrlResponse: httpUrlResponse)))
                 return
             }
                         
             guard let response = ApiResponse<T>(data: data, httpUrlResponse: httpUrlResponse) else {
+
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.parsingError).error("Error applying generic paring stratergy\(error?.localizedDescription  ?? "")")
+                
                 handler(.failure(.apiParseError))
                 return
             }
@@ -65,6 +84,9 @@ struct ServicesManager: ServicesManagerProtocol {
     
     func fetch<T>(_ request: ApiUrlRequestBuilderProtocol, handler: @escaping (Result<T, NetworkingError>) -> Void) where T : Decodable, T : Encodable {
         guard let urlRequest = try? request.asURLRequest() else {
+            
+            Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.urlError).error("Error creating URL")
+            
             handler(.failure(.requestFailed))
             return
         }
@@ -74,25 +96,41 @@ struct ServicesManager: ServicesManagerProtocol {
             guard error == nil else {
                 if let error = error as NSError?, error.code == NSURLErrorCancelled {
                     handler(.failure(.cancelled))
+
+                    Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceRequest).error("URL error cancelled: \(error.code) \(error.localizedDescription)")
+                    
                     return
                 }
                 handler(.failure(.requestFailed))
+
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceRequest).error("Error requesting data : \(error?.localizedDescription  ?? "")")
+
                 return
             }
 
             guard let httpUrlResponse = response as? HTTPURLResponse else {
-                handler(.failure(.requestFailed))
+                handler(.failure(.responseError()))
+                
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Error getting service response : \(error?.localizedDescription  ?? "")")
+
                 return
             }
 
             guard self.successRange.contains(httpUrlResponse.statusCode) else {
                 handler(.failure(.responseError(data: data, httpUrlResponse: httpUrlResponse)))
+                
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Service response status code out of range: \(error?.localizedDescription  ?? "")")
+
                 return
             }
                         
             guard let response = ApiResponse<T>(data: data, httpUrlResponse: httpUrlResponse),
                   let entity = response.entities.first else {
+                
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.parsingError).error("Error applying generic paring stratergy\(error?.localizedDescription  ?? "")")
+                
                 handler(.failure(.apiParseError))
+
                 return
             }
             

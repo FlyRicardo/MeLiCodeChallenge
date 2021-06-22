@@ -26,11 +26,11 @@ struct ApiResponse<T: Codable> {
         do {
             self.entities = try decoder.decode([T].self, from: data).compactMap { $0 }
         } catch {
-            Logger(subsystem: Bundle.main.bundleIdentifier!, category: "parsing").error("\(error.localizedDescription)")
+            Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.parsingError).error("\(error.localizedDescription)")
             do {
                 self.entities = [try decoder.decode(T.self, from: data)]
             } catch {
-                Logger(subsystem: Bundle.main.bundleIdentifier!, category: "parsing").error("\(error.localizedDescription)")
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.parsingError).error("\(error.localizedDescription)")
                 return nil
             }
         }
