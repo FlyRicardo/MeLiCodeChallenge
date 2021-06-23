@@ -12,12 +12,12 @@ MeLiCodeChallenge repository holds code challenge part of the Mercado Libre sele
 ## Instalation
 
 
-1. Download the repository 
-
+1. Switch to `master` branch 
+2. Download the repository 
 ```
-git clone https://github.com/ricardogd/MercadoLibreTest.git
+git clone https://github.com/FlyRicardo/MeLiCodeChallenge.git
 ```
+3. Go to `MeLiCodeChallenge` inner folder
 
-2. Use `master` branch 
-
-3. Run `pod install`
+4. Run `pod install`
+6. Open `MeLiCodeChallenge.xcworkspace`, compile and run
