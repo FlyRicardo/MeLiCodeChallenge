@@ -12,18 +12,16 @@ class CategoryListPresenter {
     
     // MARK: - Properties
     private var adapter: CategoryListAdapterProtocol
-    private var observableObject: CategoryListObservableObjectProtocol
+    private var view: CategoryListViewProtocol
     private var error: NetworkingError
     private var errorLoadingData: Bool
-    private var isLoading: Bool
 
     init(adapter: CategoryListAdapter,
-         observableObject: CategoryListObservableObjectProtocol) {
+         view: CategoryListViewProtocol) {
         self.adapter = adapter
-        self.observableObject = observableObject
+        self.view = view
         self.error = .cancelled
         self.errorLoadingData = false
-        self.isLoading = true
     }
 }
 
@@ -31,25 +29,23 @@ class CategoryListPresenter {
 //MARK: CategoriesPresenterProtocol
 
 extension CategoryListPresenter: CategoryListPresenterProtocol {
-    func loadData() {
+    func loadCategories() {
         
-        isLoading = true
-        
-        adapter.fetchCategories { [weak self] (data: Result<[Category], NetworkingError>) in
+        adapter.fetchCategories { [weak self] (data: Result<[CategoryModel], NetworkingError>) in
             guard let self = self else {
                 return
             }
             
             switch data {
             case .success(let categories):
-                var categoriesWithImage = [Category]()
+                var categoriesWithImage = [CategoryModel]()
                 
                 let dispatchGroup = DispatchGroup()
                 
-                categories.forEach { (category: Category) in
+                categories.forEach { (category: CategoryModel) in
                     dispatchGroup.enter()
                     
-                    self.adapter.fetchCategory(withId: category.id) {(categoryDetail: Result<Category, NetworkingError>) in
+                    self.adapter.fetchCategory(withId: category.id) {(categoryDetail: Result<CategoryModel, NetworkingError>) in
                         
                         switch categoryDetail {
                         case .success(let categoryDetail):
@@ -58,7 +54,7 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
                                                              name: category.name,
                                                              picture: categoryDetail.picture)
                             
-                            categoriesWithImage.append(categoryWithImage)
+                            categoriesWithImage.append(categoryWithImage.model)
                             
                             dispatchGroup.leave()
                             
@@ -80,6 +76,10 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
             }
         }
     }
+    
+    func loadProducts() {
+        
+    }
 }
 
 
@@ -87,13 +87,13 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
 
 extension CategoryListPresenter {
     
-    private func handleCompletionCategoriesAPICall(response: [Category]) {
-        observableObject.refreshCards(data: response)
-        observableObject.isLoadingObservable = false
+    private func handleCompletionCategoriesAPICall(response: [CategoryModel]) {
+        view.refreshCategoriesCards(data: response)
+        view.isLoadingObservable = false
     }
     
     private func handleErrorWhenLoadingCategories(_ errorDescription: String) {
-        observableObject.showErrorObservable = true
+        view.showErrorObservable = true
     }
     
     func errorDescription(_ error: NetworkingError) -> String {

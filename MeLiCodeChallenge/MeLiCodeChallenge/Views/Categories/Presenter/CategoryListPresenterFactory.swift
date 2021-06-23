@@ -10,9 +10,9 @@ import Foundation
 struct CategoryListPresenterFactory {
     var presenter: CategoryListPresenterProtocol
     
-    init(observableObject: CategoryListObservableObjectProtocol) {
+    init(observableObject: CategoryListViewProtocol) {
         let adapter = CategoryListAdapter()
         presenter = CategoryListPresenter(adapter: adapter,
-                                        observableObject: observableObject)
+                                          view: observableObject)
     }
 }

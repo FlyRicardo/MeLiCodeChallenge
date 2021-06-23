@@ -18,6 +18,7 @@ struct Constants{
     struct Categories {
         // Localizable value
         struct Localizable {
+            static let site = "categories.site".localized(inContext: CategoryListAdapter.self)
             static let title = "categories.navigationBar.title".localized(inContext: CategoryListPresenter.self)
             static let alertErrorTitle = "categories.alert.error.title".localized(inContext: CategoryListPresenter.self)
             static let alertErrorDescription = "categories.alert.error.description".localized(inContext: CategoryListPresenter.self)

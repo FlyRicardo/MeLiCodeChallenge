@@ -9,8 +9,8 @@ import Foundation
 
 /// Interface to comunicate to Meli categories endpoints  
 protocol CategoryListAdapterProtocol {
-    func fetchCategories(handler: @escaping (Result<[Category], NetworkingError>) -> Void)
+    func fetchCategories(handler: @escaping (Result<[CategoryModel], NetworkingError>) -> Void)
     
     func fetchCategory(withId id: String,
-                       handler: @escaping (Result<Category, NetworkingError>) -> Void)
+                       handler: @escaping (Result<CategoryModel, NetworkingError>) -> Void)
 }

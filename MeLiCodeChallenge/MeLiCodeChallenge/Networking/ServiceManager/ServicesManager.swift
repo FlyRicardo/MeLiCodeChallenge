@@ -54,7 +54,7 @@ struct ServicesManager: ServicesManagerProtocol {
 
             guard let httpUrlResponse = response as? HTTPURLResponse else {
 
-                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Error getting service response : \(error?.localizedDescription  ?? "")")
+                Logger(subsystem: Bundle.main.bundleIdentifier!, category: Constants.Error.serviceResponse).error("Error getting service response")
                 
                 handler(.failure(.requestFailed))
                 return

@@ -12,8 +12,8 @@ import os.log
 class CategoryListObservableObject: ObservableObject {
     
     //MARK: Publised Variables
-    @Published var categories: [Category] = []
-    @Published var items: [Item] = []
+    @Published var categories: [CategoryModel] = []
+    @Published var products: [ProductModel] = []
     @Published var isLoading: Bool = true
     @Published var showError: Bool = false
     
@@ -21,7 +21,7 @@ class CategoryListObservableObject: ObservableObject {
     @State var searchText: String = ""
     @State var searchByProduct: Bool = false {
         didSet {
-            loadProducts()
+            loadProducts(byText: searchText)
         }
     }
     @State var errorDescription: String = ""
@@ -43,7 +43,7 @@ class CategoryListObservableObject: ObservableObject {
 
 //MARK: CategoryListObservableObjectProtocol
 
-extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
+extension CategoryListObservableObject: CategoryListViewProtocol {
     var showErrorObservable: Bool {
         get {
             return showError
@@ -62,7 +62,7 @@ extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
         }
     }
 
-    func refreshCards(data: [Category]) {
+    func refreshCategoriesCards(data: [CategoryModel]) {
         categories = data
     }
 }
@@ -73,11 +73,11 @@ extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
 extension CategoryListObservableObject {
     
     private func loadCategories() {
-        self.presenter.loadData()
+        self.presenter.loadCategories()
     }
     
-    private func loadProducts() {
-        
+    private func loadProducts(byText: String) {
+//        self.presenter.
     }
 
 }

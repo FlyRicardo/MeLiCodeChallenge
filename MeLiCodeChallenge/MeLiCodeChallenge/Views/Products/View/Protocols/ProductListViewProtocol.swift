@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ProductListObservableObjectProtocol {
+protocol ProductListViewProtocol {
     
 }

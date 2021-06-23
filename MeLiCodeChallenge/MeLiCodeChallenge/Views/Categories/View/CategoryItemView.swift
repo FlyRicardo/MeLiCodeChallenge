@@ -49,7 +49,7 @@ struct CategoryItemView: View {
 
 struct CategoryListItem_Previews: PreviewProvider {
     
-    static var category = Category(id: "1", name: "test name", picture: "")
+    static var category = CategoryModel(id: "1", name: "test name", picture: "")
     static var categoryItemObservableObject = CategoryItemObservableObject(category: category)
 
     static var previews: some View {

@@ -7,6 +7,7 @@
 */
 
 // MARK - Categories texts
+"categories.site" = "MCO";
 "categories.navigationBar.title" = "Categories";
 "categories.alert.error.title" = "An error occurred loading categories";
 "categories.alert.error.description" = "Ups! something went wrong. Please try later.";

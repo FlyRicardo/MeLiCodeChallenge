@@ -7,6 +7,16 @@
 
 import Foundation
 
-class ProductItemObservableObject : ProductListObservableObjectProtocol {
+class ProductItemObservableObject: ObservableObject {
+    
+    //MARK: Publised Variables
+    @Published var product: ProductModel
+    
+    init(product: ProductModel) {
+        self.product = product
+    }
+}
+
+extension ProductItemObservableObject: ProductListViewProtocol{
     
 }

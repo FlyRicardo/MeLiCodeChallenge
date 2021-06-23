@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CategoryListAdapter {
+class CategoryListAdapter {
     
     // MARK: - Properties
     let categoryServices = ServicesProvider.create(repository: CategoryServicesProtocol.self)
@@ -20,11 +20,11 @@ struct CategoryListAdapter {
 
 extension CategoryListAdapter: CategoryListAdapterProtocol {
 
-    func fetchCategories(handler: @escaping (Result<[Category], NetworkingError>) -> Void) {
-        categoryServices.getCategories(fromSite: "MCO") { (response: CategoriesResponse) in
+    func fetchCategories(handler: @escaping (Result<[CategoryModel], NetworkingError>) -> Void) {
+        categoryServices.getCategories(fromSite: Constants.Categories.Localizable.site) { (response: CategoriesResponse) in
             switch response {
             case .success(let categories):
-                handler(.success(categories))
+                handler(.success(categories.map({ $0.model })))
             case .failure(let error):
                 handler(.failure(error))
             }
@@ -32,11 +32,11 @@ extension CategoryListAdapter: CategoryListAdapterProtocol {
     }
     
     func fetchCategory(withId id: String,
-                       handler: @escaping (Result<Category, NetworkingError>) -> Void) {
+                       handler: @escaping (Result<CategoryModel, NetworkingError>) -> Void) {
         categoryServices.getCategory(withId: id) { (response: CategoryResponse) in
             switch response {
             case .success(let category):
-                handler(.success(category))
+                handler(.success( category.model ))
             case .failure(let error):
                 handler(.failure(error))
             }

@@ -7,14 +7,14 @@
 
 import Foundation
 
-public struct Item: Codable {
+struct Item: Codable {
     enum CodingKeys : String, CodingKey {
         case id
         case title
         case price
+        case thumbnail
         case installments
         case shipping
-        case thumbnail
         case currencyId = "currency_id"
         case availableQuantity = "available_quantity"
     }
@@ -22,9 +22,21 @@ public struct Item: Codable {
     let id: String
     let title: String
     let price: Float
-    let installments: Installments
-    let shipping: Shipping
     let thumbnail: String
+    let installments: Installments?
+    let shipping: Shipping?
     let currencyId: String?
     let availableQuantity: Int?
+    
+    // MARK: SWIFT canvas purposes only
+    init() {
+        id = "1"
+        title = "title test"
+        price = 0.0
+        thumbnail = ""
+        installments = Installments(quantity: 0, amount: 0, rate: 0.0, currencyId: "COP")
+        shipping = Shipping(freeShipping: true)
+        currencyId = ""
+        availableQuantity = 0
+    }
 }

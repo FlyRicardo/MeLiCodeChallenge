@@ -27,12 +27,25 @@ struct CategoryListView: View {
                 SearchBarView(text: $categoryListObservableObject.searchText, searchByProduct: $categoryListObservableObject.searchByProduct)
                     
             }
-
-            if categoryListObservableObject.searchByProduct {
+            if categoryListObservableObject.isLoading {
+                //Loading Shimmer Animation
+                ScrollView {
+                    VStack {
+                        ForEach(0...1, id: \.self) { raw in
+                            ListAnimationView()
+                                .frame(height: 180)
+                                .padding()
+                        }
+                    }
+                }
+                .padding(.bottom, 1)
+            }
+            else if categoryListObservableObject.searchByProduct {
                 ScrollView {
                     LazyVStack {
-                        ForEach(categoryListObservableObject.items, id: \.id) { category in
-                            // TODO: Load product while search bar is used
+                        ForEach(categoryListObservableObject.products, id: \.id) { product in
+                            let productItemObservableObject = ProductItemObservableObject(product: product)
+                            ProductItemView(productItemObservableObject: productItemObservableObject)
                         }
                     }
                 }
@@ -62,5 +75,16 @@ struct CategoryListView: View {
                   dismissButton: .default(Text(Constants.Categories.Localizable.alertErrorButton)))
             
         }
+    }
+}
+
+struct CategoryListView_Preview: PreviewProvider {
+    
+    static let navigationController = UINavigationController()
+    static let categoriesCoordinator = CategoriesCoordinator(navigationController: navigationController)
+    static let categoryListObservableObject = CategoryListObservableObject(coordinator: categoriesCoordinator)
+    
+    static var previews: some View {
+        CategoryListView(categoryListObservableObject: categoryListObservableObject)
     }
 }
