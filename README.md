@@ -21,3 +21,8 @@ git clone https://github.com/FlyRicardo/MeLiCodeChallenge.git
 
 4. Run `pod install`
 6. Open `MeLiCodeChallenge.xcworkspace`, compile and run
+
+## Screenshoots
+| Before |
+| :------:|
+|     ![MeliCodeChallenge](https://user-images.githubusercontent.com/7501209/123029480-cc446b80-d3a6-11eb-82f6-4b9004a44c41.gif)|
