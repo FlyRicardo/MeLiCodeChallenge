@@ -15,6 +15,7 @@ class CategoryListObservableObject: ObservableObject {
     @Published var categories: [Category] = []
     @Published var items: [Item] = []
     @Published var isLoading: Bool = true
+    @Published var showError: Bool = false
     
     //MARK: State variables
     @State var searchText: String = ""
@@ -23,6 +24,7 @@ class CategoryListObservableObject: ObservableObject {
             loadProducts()
         }
     }
+    @State var errorDescription: String = ""
     
     //MARK: Private Variables
     private lazy var presenter: CategoryListPresenterProtocol = {
@@ -42,21 +44,26 @@ class CategoryListObservableObject: ObservableObject {
 //MARK: CategoryListObservableObjectProtocol
 
 extension CategoryListObservableObject: CategoryListObservableObjectProtocol {
+    var showErrorObservable: Bool {
+        get {
+            return showError
+        }
+        set {
+            showError = newValue
+        }
+    }
+
+    var isLoadingObservable: Bool {
+        get {
+            return isLoading
+        }
+        set {
+            isLoading = newValue
+        }
+    }
 
     func refreshCards(data: [Category]) {
-        self.categories = data
-    }
-    
-    func hideLoading() {
-
-    }
-    
-    func showLoading() {
-
-    }
-    
-    func showError() {
-
+        categories = data
     }
 }
 

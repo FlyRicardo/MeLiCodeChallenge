@@ -12,10 +12,8 @@ protocol CategoryListObservableObjectProtocol {
     
     func refreshCards(data: [Category])
     
-    func showError()
+    var showErrorObservable: Bool { get set }
 
-    func hideLoading()
-
-    func showLoading()
+    var isLoadingObservable: Bool { get set }
 
 }

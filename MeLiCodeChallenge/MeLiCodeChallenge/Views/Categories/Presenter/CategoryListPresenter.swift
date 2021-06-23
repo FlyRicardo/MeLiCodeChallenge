@@ -13,15 +13,17 @@ class CategoryListPresenter {
     // MARK: - Properties
     private var adapter: CategoryListAdapterProtocol
     private var observableObject: CategoryListObservableObjectProtocol
-    private var errorLoadingCategories: Bool
+    private var error: NetworkingError
+    private var errorLoadingData: Bool
     private var isLoading: Bool
 
     init(adapter: CategoryListAdapter,
          observableObject: CategoryListObservableObjectProtocol) {
         self.adapter = adapter
         self.observableObject = observableObject
-        errorLoadingCategories = false
-        isLoading = false
+        self.error = .cancelled
+        self.errorLoadingData = false
+        self.isLoading = true
     }
 }
 
@@ -30,6 +32,8 @@ class CategoryListPresenter {
 
 extension CategoryListPresenter: CategoryListPresenterProtocol {
     func loadData() {
+        
+        isLoading = true
         
         adapter.fetchCategories { [weak self] (data: Result<[Category], NetworkingError>) in
             guard let self = self else {
@@ -71,7 +75,7 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.handleErrorOnLoadingCategories(error: error)
+                    self.handleErrorWhenLoadingCategories(self.errorDescription(error))
                 }
             }
         }
@@ -79,15 +83,23 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
 }
 
 
-// MARK: - Loading state views
+// MARK: - Propagate states view
 
 extension CategoryListPresenter {
     
     private func handleCompletionCategoriesAPICall(response: [Category]) {
         observableObject.refreshCards(data: response)
+        observableObject.isLoadingObservable = false
     }
     
-    private func handleErrorOnLoadingCategories(error: Error) {
-        
+    private func handleErrorWhenLoadingCategories(_ errorDescription: String) {
+        observableObject.showErrorObservable = true
+    }
+    
+    func errorDescription(_ error: NetworkingError) -> String {
+        guard error.localizedDescription.isEmpty else {
+            return Constants.Categories.Localizable.alertErrorDescription
+        }
+        return error.localizedDescription
     }
 }

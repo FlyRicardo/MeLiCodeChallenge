@@ -33,7 +33,7 @@ extension CategoriesCoordinator: Coordinator {
     func setUpRootViewController() {
         let categoryListObservableObject = CategoryListObservableObject(coordinator: self)
         let viewController = UIHostingController(rootView: CategoryListView(categoryListObservableObject: categoryListObservableObject))
-        viewController.title = Constants.Categories.Localizable.categoriesTitle
+        viewController.title = Constants.Categories.Localizable.title
         
         self.navigationController.pushViewController(viewController, animated: true)
     }
@@ -41,7 +41,7 @@ extension CategoriesCoordinator: Coordinator {
     func navigateToProduct(withProductId id: String) {
         let productListObservableObject = ProductListObservableObject()
         let vc = UIHostingController(rootView: ProductListView())
-        vc.title = Constants.Categories.Localizable.categoriesTitle
+        vc.title = Constants.Categories.Localizable.title
         self.navigationController.pushViewController(vc, animated: true)
         
         Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Displaying Products").error("Displaying Products Successfully")

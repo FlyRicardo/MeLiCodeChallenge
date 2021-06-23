@@ -27,12 +27,12 @@ struct CategoryListView: View {
                 SearchBarView(text: $categoryListObservableObject.searchText, searchByProduct: $categoryListObservableObject.searchByProduct)
                     
             }
-            
+
             if categoryListObservableObject.searchByProduct {
                 ScrollView {
                     LazyVStack {
                         ForEach(categoryListObservableObject.items, id: \.id) { category in
-                            
+                            // TODO: Load product while search bar is used
                         }
                     }
                 }
@@ -56,6 +56,11 @@ struct CategoryListView: View {
                 }
                 .padding(.bottom, 1)
             }
+        }.alert(isPresented: $categoryListObservableObject.showError) { () -> Alert in
+            Alert(title: Text(Constants.Categories.Localizable.alertErrorDescription),
+                  message: Text(categoryListObservableObject.errorDescription),
+                  dismissButton: .default(Text(Constants.Categories.Localizable.alertErrorButton)))
+            
         }
     }
 }
