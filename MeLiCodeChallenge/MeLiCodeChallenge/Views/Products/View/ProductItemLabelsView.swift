@@ -30,12 +30,9 @@ struct ProductItemLabelsView: View {
             .padding(.leading, 5)
 
             HStack {
-                Text("\(product.installmentAmount)")
-                    .font(.title)
-                    .padding(.top, 5)
-                Text("\(product.installmentQuantity)")
+                Text(product.installment)
                     .font(.system(size: 15))
-                    .padding(.top, 5)
+                    .font(.title)
                     .foregroundColor(Colors.green)
             }
 
@@ -52,11 +49,10 @@ struct ProductPriceTextView_Previews: PreviewProvider {
     static var previews: some View {
         ProductItemLabelsView(product: ProductModel(id: "1",
                                                     title: "Portatil Lenovo Amd Athon Gold 4gb 128 gb Ssd W10 Pro 14' Hd",
-                                                    price: 300.000,
+                                                    price: "300.000",
                                                     thumbnailUrl: URL(string:""),
                                                     currency: "COP",
-                                                    installmentQuantity: 0,
-                                                    installmentAmount: 0.0,
+                                                    installment: "",
                                                     shippingCost: "Free"))
     }
 }

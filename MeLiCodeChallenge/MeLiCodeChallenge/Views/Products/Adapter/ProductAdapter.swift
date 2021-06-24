@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct ProductListAdapter {
+class ProductAdapter {
     // MARK: - Properties
     let productServices = ServicesProvider.create(repository: ItemServicesProtocol.self)
     typealias ProductsResponse = Result<[Category], NetworkingError>
     typealias ProductDetailResponse = Result<Category, NetworkingError>
 }
 
-extension ProductListAdapter: ProductListAdapterProtocol {
+extension ProductAdapter: ProductAdapterProtocol {
     func fetchProducts(byQuery query: String, handler: @escaping (Result<[ProductModel], NetworkingError>) -> Void) {
         productServices.getItems(fromSite: Constants.Categories.Localizable.site,
                                  byQuery: query) { (response: Result<[Item], NetworkingError>) in

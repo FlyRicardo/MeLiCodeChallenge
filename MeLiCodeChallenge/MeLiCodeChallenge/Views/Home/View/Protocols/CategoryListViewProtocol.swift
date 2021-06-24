@@ -8,9 +8,11 @@
 import Foundation
 
 // Functions that notifies changes to `Published` parameters within Observable Objects
-protocol CategoryListViewProtocol {
+protocol HomeViewProtocol {
     
     func refreshCategoriesCards(data: [CategoryModel])
+    
+    func refreshProductsCards(data: [ProductModel])
     
     var showErrorObservable: Bool { get set }
 

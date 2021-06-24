@@ -20,7 +20,7 @@ struct ProductItemView: View {
             GeometryReader { geometry in
                 ZStack {
                     Rectangle()
-                        .frame(width: geometry.size.width, height: 150)
+                        .frame(width: geometry.size.width, height: 180)
                         .foregroundColor(Colors.gray)
                         .cornerRadius(15)
                         .shadow(radius: 10)
@@ -31,20 +31,23 @@ struct ProductItemView: View {
                                 .placeholder {
                                     // Placeholder while downloading
                                     Image("DefaultImage", bundle: nil)
-                                        .aspectRatio(contentMode: .fill)
+                                        .aspectRatio(contentMode: .fit)
                                 }
                                 .resizable()
                                 .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                
                                 .aspectRatio(contentMode: .fit)
                                 .background(Colors.gray)
                                 .cornerRadius(20)
                                 .shadow(radius: 5)
                         }
+                        .padding(.leading, 10)
 
                         // Product info
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .center) {
                             ProductItemLabelsView(product: productItemObservableObject.product)
                         }
+                        .padding([.top, .bottom, .trailing], 10)
                         
                     }
                 }
@@ -57,11 +60,10 @@ struct ProductItemView_Previews: PreviewProvider {
 
     static let productModel = ProductModel(id: "1",
                                            title: "Portatil Lenovo Amd Athon Gold 4gb 128 gb Ssd W10 Pro 14' Hd",
-                                           price: 300.000,
+                                           price: "300.000",
                                            thumbnailUrl: URL(string:""),
                                            currency: "COP",
-                                           installmentQuantity: 0,
-                                           installmentAmount: 0.0,
+                                           installment: "",
                                            shippingCost: "Free")
     static let productItemObservableObject = ProductItemObservableObject(product: productModel)
     

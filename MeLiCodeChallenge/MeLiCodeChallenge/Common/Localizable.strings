@@ -15,3 +15,5 @@
 
 // MARK - Products texts
 "navigationBar.title.products" = "Products";
+"product.shipping.free" = "Free shipping";
+"product.shipping.notincluded" = "Delivery not included";

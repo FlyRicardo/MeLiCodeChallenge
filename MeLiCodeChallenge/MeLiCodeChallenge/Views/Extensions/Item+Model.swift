@@ -11,11 +11,23 @@ extension Item {
     var model: ProductModel {
         return ProductModel(id: id,
                             title: title,
-                            price: price,
+                            price: price.currencyFormat(),
                             thumbnailUrl: URL(string: thumbnail),
                             currency: installments?.currencyId ?? "",
-                            installmentQuantity: installments?.quantity ?? 0,
-                            installmentAmount: installments?.amount ?? 0.0,
-                            shippingCost: "Free")
+                            installment: installmentFormatted(installments),
+                            shippingCost: productShippingFormatted(shipping?.freeShipping ?? false))
+    }
+    
+    private func installmentFormatted(_ installment: Installments?) -> String {
+        guard let installmentAmountFormatted = installments?.amount.currencyFormat(),
+              let installmentQuantity = installments?.quantity else {
+            return ""
+        }
+        return installmentAmountFormatted + " x\(installmentQuantity)"
+    }
+
+    func productShippingFormatted(_ isFreeShipping: Bool) -> String {
+        return isFreeShipping ? Constants.Products.Localizable.shippingFree :
+            Constants.Products.Localizable.shippingNotIncluded
     }
 }

@@ -18,17 +18,17 @@ class HomeViewObservableObject: ObservableObject {
     @Published var showError: Bool = false
     
     //MARK: State variables
-    @State var searchText: String = ""
-    @State var searchByProduct: Bool = false {
+    var searchText: String = ""
+    var searchByProduct: Bool = false {
         didSet {
-            loadProducts(byText: searchText)
+            loadProducts(text: searchText)
         }
     }
     @State var errorDescription: String = ""
     
     //MARK: Private Variables
-    private lazy var presenter: CategoryListPresenterProtocol = {
-        return CategoryListPresenterFactory(observableObject: self).presenter
+    private lazy var presenter: HomePresenterProtocol = {
+        return HomePresenterFactory(observableObject: self).presenter
     }()
     
     weak var coordinator: CategoriesCoordinator?
@@ -43,7 +43,7 @@ class HomeViewObservableObject: ObservableObject {
 
 //MARK: CategoryListObservableObjectProtocol
 
-extension HomeViewObservableObject: CategoryListViewProtocol {
+extension HomeViewObservableObject: HomeViewProtocol {
     var showErrorObservable: Bool {
         get {
             return showError
@@ -65,6 +65,10 @@ extension HomeViewObservableObject: CategoryListViewProtocol {
     func refreshCategoriesCards(data: [CategoryModel]) {
         categories = data
     }
+    
+    func refreshProductsCards(data: [ProductModel]) {
+        products = data
+    }
 }
 
 
@@ -76,8 +80,8 @@ extension HomeViewObservableObject {
         self.presenter.loadCategories()
     }
     
-    private func loadProducts(byText: String) {
-//        self.presenter.
+    private func loadProducts(text: String) {
+        self.presenter.loadProducts(byText: text)
     }
 
 }

@@ -28,15 +28,4 @@ struct Item: Codable {
     let currencyId: String?
     let availableQuantity: Int?
     
-    // MARK: SWIFT canvas purposes only
-    init() {
-        id = "1"
-        title = "title test"
-        price = 0.0
-        thumbnail = ""
-        installments = Installments(quantity: 0, amount: 0, rate: 0.0, currencyId: "COP")
-        shipping = Shipping(freeShipping: true)
-        currencyId = ""
-        availableQuantity = 0
-    }
 }

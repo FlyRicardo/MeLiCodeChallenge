@@ -8,17 +8,20 @@
 import Foundation
 import os.log
 
-class CategoryListPresenter {
+class HomePresenter {
     
     // MARK: - Properties
-    private var adapter: CategoryListAdapterProtocol
-    private var view: CategoryListViewProtocol
+    private var categoryAdapter: CategoryAdapterProtocol
+    private var productAdapter: ProductAdapterProtocol
+    private var view: HomeViewProtocol
     private var error: NetworkingError
     private var errorLoadingData: Bool
 
-    init(adapter: CategoryListAdapter,
-         view: CategoryListViewProtocol) {
-        self.adapter = adapter
+    init(categoryAdapter: CategoryAdapterProtocol,
+         productAdapter: ProductAdapterProtocol,
+         view: HomeViewProtocol) {
+        self.categoryAdapter = categoryAdapter
+        self.productAdapter = productAdapter
         self.view = view
         self.error = .cancelled
         self.errorLoadingData = false
@@ -28,10 +31,12 @@ class CategoryListPresenter {
 
 //MARK: CategoriesPresenterProtocol
 
-extension CategoryListPresenter: CategoryListPresenterProtocol {
+extension HomePresenter: HomePresenterProtocol {
+    
     func loadCategories() {
+        view.isLoadingObservable = true
         
-        adapter.fetchCategories { [weak self] (data: Result<[CategoryModel], NetworkingError>) in
+        categoryAdapter.fetchCategories { [weak self] (data: Result<[CategoryModel], NetworkingError>) in
             guard let self = self else {
                 return
             }
@@ -45,7 +50,7 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
                 categories.forEach { (category: CategoryModel) in
                     dispatchGroup.enter()
                     
-                    self.adapter.fetchCategory(withId: category.id) {(categoryDetail: Result<CategoryModel, NetworkingError>) in
+                    self.categoryAdapter.fetchCategory(withId: category.id) {(categoryDetail: Result<CategoryModel, NetworkingError>) in
                         
                         switch categoryDetail {
                         case .success(let categoryDetail):
@@ -66,7 +71,7 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
                 
                 dispatchGroup.notify(queue: .main) {
                     DispatchQueue.main.async {
-                        self.handleCompletionCategoriesAPICall(response: categoriesWithImage)
+                        self.handleCompletionCategoriesApiCall(response: categoriesWithImage)
                     }
                 }
             case .failure(let error):
@@ -77,18 +82,40 @@ extension CategoryListPresenter: CategoryListPresenterProtocol {
         }
     }
     
-    func loadProducts() {
-        
+    func loadProducts(byText text: String) {
+        view.isLoadingObservable  = true
+
+        productAdapter.fetchProducts(byQuery: text) { [weak self] (response: Result<[ProductModel], NetworkingError>) in
+            guard let self = self else {
+                return
+            }
+            
+            switch response {
+            case .success(let products):
+                DispatchQueue.main.async {
+                    self.handleCompletionProductApiCall(response: products)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.handleErrorWhenLoadingCategories(self.errorDescription(error))
+                }
+            }
+            
+        }
     }
 }
 
-
 // MARK: - Propagate states view
 
-extension CategoryListPresenter {
+extension HomePresenter {
     
-    private func handleCompletionCategoriesAPICall(response: [CategoryModel]) {
+    private func handleCompletionCategoriesApiCall(response: [CategoryModel]) {
         view.refreshCategoriesCards(data: response)
+        view.isLoadingObservable = false
+    }
+    
+    private func handleCompletionProductApiCall(response: [ProductModel]) {
+        view.refreshProductsCards(data: response)
         view.isLoadingObservable = false
     }
     
@@ -96,7 +123,7 @@ extension CategoryListPresenter {
         view.showErrorObservable = true
     }
     
-    func errorDescription(_ error: NetworkingError) -> String {
+    private func errorDescription(_ error: NetworkingError) -> String {
         guard error.localizedDescription.isEmpty else {
             return Constants.Categories.Localizable.alertErrorDescription
         }

@@ -18,18 +18,20 @@ struct Constants{
     struct Categories {
         // Localizable value
         struct Localizable {
-            static let site = "categories.site".localized(inContext: CategoryListAdapter.self)
-            static let title = "categories.navigationBar.title".localized(inContext: CategoryListPresenter.self)
-            static let alertErrorTitle = "categories.alert.error.title".localized(inContext: CategoryListPresenter.self)
-            static let alertErrorDescription = "categories.alert.error.description".localized(inContext: CategoryListPresenter.self)
-            static let alertErrorButton = "categories.alert.error.button".localized(inContext: CategoryListPresenter.self)
+            static let site = "categories.site".localized(inContext: CategoryAdapter.self)
+            static let title = "categories.navigationBar.title".localized(inContext: HomePresenter.self)
+            static let alertErrorTitle = "categories.alert.error.title".localized(inContext: HomePresenter.self)
+            static let alertErrorDescription = "categories.alert.error.description".localized(inContext: HomePresenter.self)
+            static let alertErrorButton = "categories.alert.error.button".localized(inContext: HomePresenter.self)
         }
     }
     
     struct Products {
         // Localizable values
         struct Localizable {
-            static let title = "navigationBar.title.products".localized(inContext: CategoryListPresenter.self)
+            static let title = "navigationBar.title.products".localized(inContext: HomePresenter.self)
+            static let shippingFree = "product.shipping.free".localized(inContext: HomePresenter.self)
+            static let shippingNotIncluded = "product.shipping.notincluded".localized(inContext: HomePresenter.self)
         }
     }
 }

@@ -12,7 +12,7 @@ import Kingfisher
 struct HomeView: View {
     
     //MARK: - States
-    @StateObject var categoryListObservableObject: CategoryListObservableObject
+    @StateObject var homeViewObservableObject: HomeViewObservableObject
     
     var body: some View {
         //Categories List
@@ -24,14 +24,14 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(height: 90)
                 
-                SearchBarView(text: $categoryListObservableObject.searchText, searchByProduct: $categoryListObservableObject.searchByProduct)
+                SearchBarView(text: $homeViewObservableObject.searchText, searchByProduct: $homeViewObservableObject.searchByProduct)
                     
             }
-            if categoryListObservableObject.isLoading {
+            if homeViewObservableObject.isLoading {
                 //Loading Shimmer Animation
                 ScrollView {
                     VStack {
-                        ForEach(0...1, id: \.self) { raw in
+                        ForEach(0...2, id: \.self) { raw in
                             ListAnimationView()
                                 .frame(height: 180)
                                 .padding()
@@ -40,24 +40,27 @@ struct HomeView: View {
                 }
                 .padding(.bottom, 1)
             }
-            else if categoryListObservableObject.searchByProduct {
+            else if homeViewObservableObject.searchByProduct {
                 ScrollView {
                     LazyVStack {
-                        ForEach(categoryListObservableObject.products, id: \.id) { product in
+                        ForEach(homeViewObservableObject.products, id: \.id) { product in
                             let productItemObservableObject = ProductItemObservableObject(product: product)
                             ProductItemView(productItemObservableObject: productItemObservableObject)
                         }
+                        .frame(height: 180)
+                        .padding()
                     }
                 }
+                .padding(.bottom, 1)
             }
             else {
                 ScrollView {
                     LazyVStack {
-                        ForEach(categoryListObservableObject.categories, id: \.id) { category in
+                        ForEach(homeViewObservableObject.categories, id: \.id) { category in
                             let categoryItemObservableObject = CategoryItemObservableObject(category: category)
                             CategoryItemView(categoryItemObservableObject: categoryItemObservableObject)
                                 .onTapGesture {
-                                    categoryListObservableObject.coordinator?.navigateToProduct(withProductId: category.id)
+                                    homeViewObservableObject.coordinator?.navigateToProduct(withProductId: category.id)
                                 }
                                 .id(UUID())
                                 .frame(height: categoryItemObservableObject.itemHeight)
@@ -69,9 +72,9 @@ struct HomeView: View {
                 }
                 .padding(.bottom, 1)
             }
-        }.alert(isPresented: $categoryListObservableObject.showError) { () -> Alert in
+        }.alert(isPresented: $homeViewObservableObject.showError) { () -> Alert in
             Alert(title: Text(Constants.Categories.Localizable.alertErrorDescription),
-                  message: Text(categoryListObservableObject.errorDescription),
+                  message: Text(homeViewObservableObject.errorDescription),
                   dismissButton: .default(Text(Constants.Categories.Localizable.alertErrorButton)))
             
         }
@@ -81,10 +84,10 @@ struct HomeView: View {
 struct CategoryListView_Preview: PreviewProvider {
     
     static let navigationController = UINavigationController()
-    static let categoriesCoordinator = CategoriesCoordinator(navigationController: navigationController)
-    static let categoryListObservableObject = CategoryListObservableObject(coordinator: categoriesCoordinator)
+    static let homeCoordinator = CategoriesCoordinator(navigationController: navigationController)
+    static let homeViewObservableObject = HomeViewObservableObject(coordinator: homeCoordinator)
     
     static var previews: some View {
-        HomeView(categoryListObservableObject: categoryListObservableObject)
+        HomeView(homeViewObservableObject: homeViewObservableObject)
     }
 }

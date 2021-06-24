@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CategoryListAdapter {
+class CategoryAdapter {
     
     // MARK: - Properties
     let categoryServices = ServicesProvider.create(repository: CategoryServicesProtocol.self)
@@ -18,7 +18,7 @@ class CategoryListAdapter {
 
 // MARK: CategoriesAdapterProtocol
 
-extension CategoryListAdapter: CategoryListAdapterProtocol {
+extension CategoryAdapter: CategoryAdapterProtocol {
 
     func fetchCategories(handler: @escaping (Result<[CategoryModel], NetworkingError>) -> Void) {
         categoryServices.getCategories(fromSite: Constants.Categories.Localizable.site) { (response: CategoriesResponse) in
