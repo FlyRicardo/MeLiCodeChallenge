@@ -12,6 +12,7 @@ enum ApiUrlRequestBuilder {
     case category(id: String)
     case items(bySite: String, query: String)
     case itemDetail(id: String)
+    case itemsByCategory(categoryId: String, site: String)
     
     var urlString: String {
         let serverUrl = domain()
@@ -28,6 +29,9 @@ enum ApiUrlRequestBuilder {
             
         case .itemDetail(let id):
             return "\(serverUrl)/items/\(id)"
+            
+        case .itemsByCategory(let categoryId, let site):
+            return "\(serverUrl)/sites/\(site)/search?category=\(categoryId)"
         }
     }
     

@@ -76,7 +76,7 @@ extension HomePresenter: HomePresenterProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.handleErrorWhenLoadingCategories(self.errorDescription(error))
+                    self.handleErrorWhenLoadingData(self.errorDescription(error))
                 }
             }
         }
@@ -97,7 +97,7 @@ extension HomePresenter: HomePresenterProtocol {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.handleErrorWhenLoadingCategories(self.errorDescription(error))
+                    self.handleErrorWhenLoadingData(self.errorDescription(error))
                 }
             }
             
@@ -119,7 +119,7 @@ extension HomePresenter {
         view.isLoadingObservable = false
     }
     
-    private func handleErrorWhenLoadingCategories(_ errorDescription: String) {
+    private func handleErrorWhenLoadingData(_ errorDescription: String) {
         view.showErrorObservable = true
     }
     

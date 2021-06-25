@@ -37,4 +37,16 @@ extension ProductAdapter: ProductAdapterProtocol {
             }
         }
     }
+    
+    func fetchProducts(byCategory categoryId: String,
+                       handler: @escaping (Result<[ProductModel], NetworkingError>) -> Void) {
+        productServices.getItems(fromSite: Constants.Categories.Localizable.site, byCategory: categoryId) { (response: Result<[Item], NetworkingError>) in
+            switch response {
+            case .success(let products):
+                handler(.success(products.map({ $0.model })))
+            case .failure(let error):
+                handler(.failure(error))
+            }
+        }
+    }
 }

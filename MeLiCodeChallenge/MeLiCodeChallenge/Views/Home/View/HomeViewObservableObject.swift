@@ -31,10 +31,10 @@ class HomeViewObservableObject: ObservableObject {
         return HomePresenterFactory(observableObject: self).presenter
     }()
     
-    weak var coordinator: CategoriesCoordinator?
+    weak var coordinator: HomeCoordinator?
     
     //MARK: - Constructor
-    init(coordinator: CategoriesCoordinator) {
+    init(coordinator: HomeCoordinator) {
         self.coordinator = coordinator
         self.loadCategories()
     }
@@ -72,7 +72,7 @@ extension HomeViewObservableObject: HomeViewProtocol {
 }
 
 
-//MARK: CategoryListPresenter comunication
+//MARK: HomeViewListPresenter comunication
 
 extension HomeViewObservableObject {
     

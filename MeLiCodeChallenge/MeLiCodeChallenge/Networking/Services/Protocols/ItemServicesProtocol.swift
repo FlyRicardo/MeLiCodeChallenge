@@ -25,4 +25,16 @@ protocol ItemServicesProtocol {
     ///     - handler: Callback structure called to notify response, either sucess or failure, from service API Items
     func getItemDetail(id: String,
                        handler: @escaping (Result<ItemDetail, NetworkingError>) -> Void)
+    
+    /// Executes request , handle and propagate response, by using callbacks (Result<Success, Failure> type), of items related with a category param from specific country.
+    /// - Returns : Items related with a category param in a specific region. (I.e:  , site = MLA retrieves items releated to categories avilable in Argentina)
+    /// - Parameters:
+    ///     - fromSite: `String`, Country identifier e.g., "MLA"
+    ///     - categoryId: `String`, item key words. e.g., : "categoryId = MLA5725"
+    ///     - handler: Callback structure called to notify response, either sucess or failure, from service API Items
+    
+    func getItems(fromSite site: String, byCategory categoryId: String,
+                  handler: @escaping (Result<[Item], NetworkingError>) -> Void)
+    
+    
 }

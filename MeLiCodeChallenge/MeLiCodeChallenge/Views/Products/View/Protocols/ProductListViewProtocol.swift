@@ -8,5 +8,9 @@
 import Foundation
 
 protocol ProductListViewProtocol {
+    func refreshProductsCards(data: [ProductModel])
     
+    var showErrorObservable: Bool { get set }
+
+    var isLoadingObservable: Bool { get set }
 }

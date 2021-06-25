@@ -1,5 +1,5 @@
 //
-//  CategoriesCoordinator.swift
+//  HomeCoordinator.swift
 //  MeLiCodeChallenge
 //
 //  Created by Fabián Ricardo Rodríguez Avellaneda on 19/06/21.
@@ -39,8 +39,8 @@ extension HomeCoordinator: Coordinator {
     }
     
     func navigateToProduct(withProductId id: String) {
-        let productListObservableObject = ProductListObservableObject()
-        let vc = UIHostingController(rootView: ProductListView())
+        let productListObservableObject = ProductListViewObservableObject(categoryId: id)
+        let vc = UIHostingController(rootView: ProductListView(productListObservableObject: productListObservableObject))
         vc.title = Constants.Categories.Localizable.title
         self.navigationController.pushViewController(vc, animated: true)
         

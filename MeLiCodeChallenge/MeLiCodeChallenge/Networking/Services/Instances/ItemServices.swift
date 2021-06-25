@@ -44,4 +44,16 @@ extension ItemServices: ItemServicesProtocol {
             }
         }
     }
+    
+    func getItems(fromSite site: String, byCategory categoryId: String,
+                  handler: @escaping (Result<[Item], NetworkingError>) -> Void) {
+        servicesManager.fetch(ApiUrlRequestBuilder.itemsByCategory(categoryId: categoryId, site: site)) { (result: Result<Items, NetworkingError>) in
+            switch result {
+            case .success(let items):
+                handler(.success(items.results))
+            case .failure(let error):
+                handler(.failure(error))
+            }
+        }
+    }
 }

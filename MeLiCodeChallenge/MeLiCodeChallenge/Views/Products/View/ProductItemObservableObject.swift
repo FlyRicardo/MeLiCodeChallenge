@@ -16,7 +16,3 @@ class ProductItemObservableObject: ObservableObject {
         self.product = product
     }
 }
-
-extension ProductItemObservableObject: ProductListViewProtocol{
-    
-}

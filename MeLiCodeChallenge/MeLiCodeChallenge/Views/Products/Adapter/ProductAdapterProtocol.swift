@@ -14,4 +14,7 @@ protocol ProductAdapterProtocol {
     
     func fetchProductDetail(withId id: String,
                             handler: @escaping (Result<ProductDetailModel, NetworkingError>) -> Void)
+    
+    func fetchProducts(byCategory categoryId: String,
+                       handler: @escaping (Result<[ProductModel], NetworkingError>) -> Void)
 }

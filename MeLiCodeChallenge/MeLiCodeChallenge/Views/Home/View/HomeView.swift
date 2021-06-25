@@ -84,7 +84,7 @@ struct HomeView: View {
 struct CategoryListView_Preview: PreviewProvider {
     
     static let navigationController = UINavigationController()
-    static let homeCoordinator = CategoriesCoordinator(navigationController: navigationController)
+    static let homeCoordinator = HomeCoordinator(navigationController: navigationController)
     static let homeViewObservableObject = HomeViewObservableObject(coordinator: homeCoordinator)
     
     static var previews: some View {
