@@ -23,6 +23,7 @@ git clone https://github.com/FlyRicardo/MeLiCodeChallenge.git
 6. Open `MeLiCodeChallenge.xcworkspace`, compile and run
 
 ## Screenshoots
-| Categories & Products by Query | Products by Category & Query | 
-| :------:| :------:|
-|  ![Categories ProductsByQuery](https://user-images.githubusercontent.com/7501209/123355508-6f25f280-d52b-11eb-8432-0064d5f9f1ea.gif)=250x550| ![ProductsByCategory](https://user-images.githubusercontent.com/7501209/123355282-fa52b880-d52a-11eb-94f5-4937f1fd477e.gif)=250x550|
+| Categories & Products by Query | Products by Category & Query | Product Detail |
+| :------:| :------:| :------:|
+|  ![Categories ProductsByQuery](https://user-images.githubusercontent.com/7501209/123355508-6f25f280-d52b-11eb-8432-0064d5f9f1ea.gif)| ![ProductsByCategory](https://user-images.githubusercontent.com/7501209/123355282-fa52b880-d52a-11eb-94f5-4937f1fd477e.gif)| ![ProductDetail](https://user-images.githubusercontent.com/7501209/123424342-54349c00-d586-11eb-8a26-2b6de05fff37.gif)
+ |
