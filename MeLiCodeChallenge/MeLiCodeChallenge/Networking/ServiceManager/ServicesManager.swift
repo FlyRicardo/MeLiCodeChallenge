@@ -34,7 +34,6 @@ struct ServicesManager: ServicesManagerProtocol {
             return
         }
         
-        // TODO: Create a separate object to this execution
         let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 if let error = error as NSError?, error.code == NSURLErrorCancelled {
@@ -91,7 +90,6 @@ struct ServicesManager: ServicesManagerProtocol {
             return
         }
         
-        // TODO: Create a separate object to this execution
         let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
                 if let error = error as NSError?, error.code == NSURLErrorCancelled {
