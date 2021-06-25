@@ -65,8 +65,7 @@ struct ProductDetailView: View {
                                 .padding(.top, 5)
                             
                             HStack {
-                                Image(systemName: "airplane")
-                                    .rotationEffect(Angle(degrees: -45))
+                                Image(systemName: "car")
                                     .foregroundColor(Colors.green)
                                 Text(productDetailViewObservableObject.productDetail.shippingMode)
                                     .foregroundColor(Colors.green)
