@@ -9,7 +9,7 @@ import Foundation
 
 struct PictureModel {
     let id: String
-    let url: String
+    let url: URL?
     let size: String
     let maxSize: String
 }

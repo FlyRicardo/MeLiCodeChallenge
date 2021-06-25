@@ -38,12 +38,21 @@ extension HomeCoordinator: Coordinator {
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
-    func navigateToProduct(withProductId id: String) {
-        let productListObservableObject = ProductListViewObservableObject(categoryId: id)
+    func navigateToProduct(withcategoryId categoryId: String) {
+        let productListObservableObject = ProductListViewObservableObject(coordinator: self, categoryId: categoryId)
         let vc = UIHostingController(rootView: ProductListView(productListObservableObject: productListObservableObject))
-        vc.title = Constants.Categories.Localizable.title
+        vc.title = Constants.Products.Localizable.titleList
         self.navigationController.pushViewController(vc, animated: true)
         
-        Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Displaying Products").error("Displaying Products Successfully")
+        Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Displaying products by category").error("Displaying Products Successfully")
+    }
+    
+    func navigateToProduct(withProductId productId: String) {
+        let productDetailViewObservableObject = ProductDetailViewObservableObject(coordinator: self, productId: productId)
+        let vc = UIHostingController(rootView: ProductDetailView(productDetailViewObservableObject: productDetailViewObservableObject))
+        vc.title = Constants.Products.Localizable.titleDetail
+        self.navigationController.pushViewController(vc, animated: true)
+        
+        Logger(subsystem: Bundle.main.bundleIdentifier!, category: "Displaying Products").error("Showing Products Successfully")
     }
 }

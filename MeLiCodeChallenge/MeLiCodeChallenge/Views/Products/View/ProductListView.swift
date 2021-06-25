@@ -44,6 +44,9 @@ struct ProductListView: View {
                         ForEach(productListObservableObject.products, id: \.id) { product in
                             let productItemObservableObject = ProductItemObservableObject(product: product)
                             ProductItemView(productItemObservableObject: productItemObservableObject)
+                                .onTapGesture {
+                                    productListObservableObject.coordinator?.navigateToProduct(withProductId: product.id)
+                                }
                         }
                         .frame(height: 180)
                         .padding()

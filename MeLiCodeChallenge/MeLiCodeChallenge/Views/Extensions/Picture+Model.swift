@@ -10,7 +10,7 @@ import Foundation
 extension Picture {
     var model: PictureModel {
         return PictureModel(id: id,
-                            url: url,
+                            url: URL(string: url),
                             size: size,
                             maxSize: maxSize)
     }

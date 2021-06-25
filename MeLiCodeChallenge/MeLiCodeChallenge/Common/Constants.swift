@@ -29,7 +29,8 @@ struct Constants{
     struct Products {
         // Localizable values
         struct Localizable {
-            static let title = "navigationBar.title.products".localized(inContext: HomePresenter.self)
+            static let titleList = "navigationBar.title.products".localized(inContext: HomePresenter.self)
+            static let titleDetail = "navigationBar.title.product.detail".localized(inContext: HomePresenter.self)
             static let shippingFree = "product.shipping.free".localized(inContext: HomePresenter.self)
             static let shippingNotIncluded = "product.shipping.notincluded".localized(inContext: HomePresenter.self)
         }

@@ -46,6 +46,9 @@ struct HomeView: View {
                         ForEach(homeViewObservableObject.products, id: \.id) { product in
                             let productItemObservableObject = ProductItemObservableObject(product: product)
                             ProductItemView(productItemObservableObject: productItemObservableObject)
+                                .onTapGesture {
+                                    homeViewObservableObject.coordinator?.navigateToProduct(withProductId: product.id)
+                                }
                         }
                         .frame(height: 180)
                         .padding()
@@ -60,7 +63,7 @@ struct HomeView: View {
                             let categoryItemObservableObject = CategoryItemObservableObject(category: category)
                             CategoryItemView(categoryItemObservableObject: categoryItemObservableObject)
                                 .onTapGesture {
-                                    homeViewObservableObject.coordinator?.navigateToProduct(withProductId: category.id)
+                                    homeViewObservableObject.coordinator?.navigateToProduct(withcategoryId: category.id)
                                 }
                                 .id(UUID())
                                 .frame(height: categoryItemObservableObject.itemHeight)

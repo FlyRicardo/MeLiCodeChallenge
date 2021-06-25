@@ -37,7 +37,7 @@ struct ProductItemView: View {
                                 .frame(width: 100, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 
                                 .aspectRatio(contentMode: .fit)
-                                .background(Colors.gray)
+                                .background(Colors.darkGray)
                                 .cornerRadius(20)
                                 .shadow(radius: 5)
                         }

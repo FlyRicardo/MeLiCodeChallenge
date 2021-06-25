@@ -31,7 +31,7 @@ struct LoaderSpinnerAnimationView: View {
 
 extension LoaderSpinnerAnimationView {
     func start() {
-        Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
             withAnimation {
                 self.degress += 10.0
             }

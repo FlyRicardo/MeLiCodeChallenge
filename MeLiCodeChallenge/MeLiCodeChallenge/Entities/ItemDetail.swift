@@ -20,7 +20,7 @@ struct ItemDetail: Codable {
     
     let id: String
     let title: String
-    let price: Int
+    let price: Float
     let currency: String
     let pictures: [Picture]
     let shipping: Shipping

@@ -29,10 +29,13 @@ class ProductListViewObservableObject : ObservableObject {
         return ProductPresenterFactory(observableObject: self).presenter
     }()
     
+    weak var coordinator: HomeCoordinator?
+    
     //MARK: - Constructor
-//    init(coordinator: HomeCoordinator) {
-    init(categoryId: String){
+    init(coordinator: HomeCoordinator,
+         categoryId: String) {
         self.loadProducts(byCategory: categoryId)
+        self.coordinator = coordinator
     }
 }
 

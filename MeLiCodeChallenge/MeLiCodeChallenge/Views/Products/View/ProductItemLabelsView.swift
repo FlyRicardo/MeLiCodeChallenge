@@ -19,7 +19,7 @@ struct ProductItemLabelsView: View {
                 .lineLimit(2)
 
             HStack {
-                Text("\(product.price)")
+                Text(product.price)
                     .font(.title)
                     .padding(.top, 5)
                 Text(product.currency)

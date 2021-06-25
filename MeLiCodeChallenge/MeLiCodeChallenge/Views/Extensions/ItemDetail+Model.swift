@@ -11,10 +11,15 @@ extension ItemDetail {
     var model: ProductDetailModel {
         return ProductDetailModel(id: id,
                                   title: title,
-                                  price: price,
+                                  price: price.currencyFormat(),
                                   currency: currency,
                                   pictures: pictures.map({ $0.model }),
                                   warranty: warranty,
                                   shippingMode: shipping.freeShipping ? "Free shipping" : "")
+    }
+    
+    func productShippingFormatted(_ isFreeShipping: Bool) -> String {
+        return isFreeShipping ? Constants.Products.Localizable.shippingFree :
+            Constants.Products.Localizable.shippingNotIncluded
     }
 }

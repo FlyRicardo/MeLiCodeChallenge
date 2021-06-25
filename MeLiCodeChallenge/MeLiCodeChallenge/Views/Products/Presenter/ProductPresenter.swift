@@ -71,7 +71,7 @@ extension ProductPresenter: ProductPresenterProtocol {
     }
 }
 
-// MARK: - Propagate states view
+// MARK: - Propagate view states 
 extension ProductPresenter {
     
     private func handleCompletionProductApiCall(response: [ProductModel]) {
