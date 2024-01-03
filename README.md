@@ -7,6 +7,7 @@ MeLiCodeChallenge repository holds code challenge part of the Mercado Libre sele
 - Swift 5.1+
 - iOS 14.0+
 - Xcode 12.0+
+- SwiftUI
 
 
 ## Instalation
