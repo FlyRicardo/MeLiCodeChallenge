@@ -1,30 +1,69 @@
-# MeLiCodeChallenge
-MeLiCodeChallenge repository holds code challenge part of the Mercado Libre selection process. The project was written by using Swift, SwiftUI framework and Kingfisher manager third-party library.
+# Description
+ 
+ This app performs simple word analysis, based on a provided set of rules, on user supplied text input. 
+
+The app is divided into two sections:
+
++ Stemming Section: This allows users to input a list of words (separated by blank spaces), performs stemming on the words, and displays the stemmed words in a table along with the frequency of each stem being identified as the root of the user input.
+
++ History Section: This displays a history of the processed stemmed words, including how many times each stem has been recognized as the root of a user-input word."
+
+ 
+ Follows MVVM architecture, written by using UIKit and custom persistance component. 
+
+ ## Stemming algorithm
+
+ The word processor algorithm emulates [stemming algorithm](https://en.wikipedia.org/wiki/Stemming#:~:text=Stemming%20algorithms%20attempt%20to%20minimize,universe%22%20to%20%22univers%22) , " by reducing inflected words, user input words, to their root form—generally". 
+ 
+For the sake of simplicity in this code challenge, the stemming algorithm has been streamlined to follow theses suffix rules: 
 
 
-## Requirements
+ 1. The following are common suffixes in the language, remove the suffix to find the root word -
+ + “L”
+ + “LZ”
+ + “EVM” ○ “ZQ”
 
-- Swift 5.1+
-- iOS 14.0+
-- Xcode 12.0+
-- SwiftUI
+ 2. These suffixes require adding back letters to determine the root word -
+ + remove “PZL” add “A”
+ + remove “PZL” add “AZ”
+ + remove “EZL” add “R”
 
+ Example: 
 
-## Instalation
+| User's input word  | Stem word               | Explanation                                                                   |
+| -------------------|-------------------------|-------------------------------------------------------------------------------|
+| IHFULZ      		 | IHFUL       			   | Applied the "L" remove suffix rule                                            |
+| UZCUZLZVKDKEPZL    | UZCUZLZVKDKEA           | Applied the remove-add back suffix, Removing "PZL" suffix and adding back "A" suffix |
+| MZV                | MZV                     | No Rule applied                                                               |
 
+  ## Architecture
+
+  MVVM,  Model - View - View Model attached to the the [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle).
+
+ ## Technologies
+ + UIKit + IB (.storyboard)
+ + A custom storage component, [JsonDataStorage.swift](https://github.com/FlyRicardo/FarmersFridgeCodeChallenge/blob/master/FarmersFridgeCodeChallenge/Storage/JsonDataStorage.swift) is designed to persist the calculated stemmed words in a local JSON file
+
+ ## Requirements
+
+- Swift 5.10+
+- iOS 17.4+
+- Xcode 15.3+
+
+ ## Setup
 
 1. Switch to `master` branch 
 2. Download the repository 
 ```
-git clone https://github.com/FlyRicardo/MeLiCodeChallenge.git
+git clone https://github.com/FlyRicardo/FarmersFridgeCodeChallenge.git
 ```
-3. Go to `MeLiCodeChallenge` inner folder
+3. Go to `FarmersFridgeCodeChallenge` inner folder
+4. Open `FarmersFridgeCodeChallenge.xcworkspace`, compile and run
 
-4. Run `pod install`
-6. Open `MeLiCodeChallenge.xcworkspace`, compile and run
 
-## Screenshoots
-| Categories & Products by Query | Products by Category & Query | Product Detail |
-| :------:| :------:| :------:|
-|  ![Categories ProductsByQuery](https://user-images.githubusercontent.com/7501209/123355508-6f25f280-d52b-11eb-8432-0064d5f9f1ea.gif)| ![ProductsByCategory](https://user-images.githubusercontent.com/7501209/123355282-fa52b880-d52a-11eb-94f5-4937f1fd477e.gif)| ![ProductDetail](https://user-images.githubusercontent.com/7501209/123424342-54349c00-d586-11eb-8a26-2b6de05fff37.gif)
- |
+ ### 
+
+| Stemming Section   | History Section |
+| ------------------ | --------------- |
+| ![StemmingSection](https://github.com/FlyRicardo/MeLiCodeChallenge/assets/7501209/8ed9092f-1e9e-4251-8950-942bd84dee95)| ![HistorySection](https://github.com/FlyRicardo/MeLiCodeChallenge/assets/7501209/e556f251-652d-4e48-9c62-46f453b36021)|
+
